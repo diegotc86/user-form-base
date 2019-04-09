@@ -1,13 +1,14 @@
 <h1>Sign up!</h1>
 
-<!--
+
 <div class="errors">
   <ul>
-    <li>One error</li>
-    <li>Another error</li>
+    <% @user.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+    <% end %>
   </ul>
 </div>
--->
+
 
 <%= form_for(@user) do |f| %>
   <ul>
