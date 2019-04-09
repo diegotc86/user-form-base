@@ -6,9 +6,17 @@ class UsersController < ApplicationController
   def new
     @user = User.new
   end
-
+  # If there is an error in a field, redirect the user back to the form and display the error at the beginning.
+  # If the user was created successfully, redirect the user to the index action.
   def create
-    @user = User.create(params[:user])
+    @user = User.new(user_params)
+    if @user.save
+      redirect to :index
+    else
+      render :new
+    end
+
+    
   end
 
   private
