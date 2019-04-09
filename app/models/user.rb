@@ -1,6 +1,6 @@
 class User < ApplicationRecord
   validates :first_name, :last_name, length: { in: 2..60 }
-  validates :username, uniqueness: true, length: { in: 2..20 }
+  validates :username, uniqueness: { case_sensitive: false }, length: { in: 2..20 }
   validates :email, format: { with: URI::MailTo::EMAIL_REGEXP }, confirmation: true
   validates :password, format: { with: /.*[0-9].*/, message: "has to at least one number" }, length: { minimum: 8 }
   validates :email_confirmation, :password_confirmation, presence: true
