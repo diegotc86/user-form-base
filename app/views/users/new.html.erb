@@ -1,52 +1,53 @@
 <h1>Sign up!</h1>
 
-<!--
+<%if @user.errors.size > 0%>
 <div class="errors">
   <ul>
-    <li>One error</li>
-    <li>Another error</li>
+  <%@user.errors.full_messages.each do |error|%>
+    <li><%=error%></li>
+  <%end%>
   </ul>
 </div>
--->
+<%end%>
 
 <%= form_for(@user) do |f| %>
   <ul>
-    <li>
+    <li style="display: inline-table">
       <%= f.label      :first_name %>
       <%= f.text_field :first_name %>
     </li>
 
-    <li>
+    <li style="display: inline-table">
       <%= f.label      :last_name %>
       <%= f.text_field :last_name %>
     </li>
 
-    <li>
+    <li style="display: inline-table">
       <%= f.label      :username %>
       <%= f.text_field :username %>
     </li>
 
-    <li>
+    <li style="display: inline-table">
       <%= f.label      :email %>
       <%= f.text_field :email %>
     </li>
 
-    <li>
+    <li style="display: inline-table">
       <%= f.label      :email_confirmation %>
       <%= f.text_field :email_confirmation %>
     </li>
 
-    <li>
+    <li style="display: inline-table">
       <%= f.label          :password %>
       <%= f.password_field :password %>
     </li>
 
-    <li>
+    <li style="display: inline-table">
       <%= f.label          :password_confirmation %>
       <%= f.password_field :password_confirmation %>
     </li>
 
-    <li>
+    <li style="display: inline-table">
       <%= f.label      :password_hint %>
       <%= f.text_field :password_hint %>
     </li>

@@ -4,5 +4,9 @@
   Thanks for registering <%= @user.full_name %>!
 <% else %>
   Huh! Seems like there are no registered users yet!
-  <%= link_to "Create one here", new_user_path %>
 <% end %>
+<br/><br/>
+If you want to create another user, click in the link
+<br/>
+<%= link_to "Create one here", new_user_path %>
+
