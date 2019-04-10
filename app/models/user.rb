@@ -7,16 +7,17 @@ class User < ApplicationRecord
   validates :last_name, presence: true, length: { in: 2..60 }
  
   #Username	Must be unique. Must be between 2 and 20 characters
-  validates :username, presence: true, uniqueness: true
+  validates :username, presence: true, uniqueness: true, length: {minimum: 2, maximum: 20}
 
   #Email	Must be unique. Must be a valid email.
   #Email Confirmation	Must be the same as the email. 
-  validates :email, presence: true, confirmation: true, uniqueness: true, 
+  validates :email, presence: true, confirmation: true,
   format: { with: URI::MailTo::EMAIL_REGEXP, message: "only allows valid emails" }
 
   #Password	At least 8 characters. Must contain at least 1 number.
   #Password Hint	Optional. Must be 100 characters max.
-  validates :password, presence: true, format: { with: /\A(?=.*[a-zA-Z])(?=.*[0-9]).{8,100}\z/, message: "must be at least 8 characters and include one number and one letter."}
+  validates :password, presence: true, 
+            format: { with: /\A(?=.*[a-zA-Z])(?=.*[0-9]).{8,100}\z/, message: "must be at least 8 characters and include one number and one letter."}
 
 
  before_save :capitalize_names
