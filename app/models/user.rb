@@ -12,7 +12,7 @@ class User < ApplicationRecord
             {uniqueness: true, length: { in: 2..20 }}
 
   # Must be unique. Must be a valid email. Must be the same as the email.
-  # (FALTA VALIDAR EMAIL)
+  # (FALTA VALIDAR EMAIL VALIDO)
   validates :email, 
             confirmation: { case_sensitive: false },
             uniqueness: true, 
@@ -23,7 +23,7 @@ class User < ApplicationRecord
   # (FALTA VALIDAR 1+ NUMEROS)
   validates :password, 
              length: { minimum: 8 }, 
-             format: { with: /\A[a-zA-Z0-9][a-zA-Z0-9_]*\z/ }, 
+             format: { with: /\A[a-zA-Z0-9]+\z/ }, 
              confirmation: true
 
   #Optional. Must be 100 characters max.
